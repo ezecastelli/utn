@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+       {{#each productos}} 
+        <div class="col-8">
+            <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{nombre}}</h5>
+    <p class="card-text">Categoria: {{nombreCategoria}}</p>
+    <a href="/productos/single/{{id}}" class="btn btn-primary">Ver Mas</a>
+  </div>
+</div>
+        </div>
+        {{/each}}
+    </div>
+</div>

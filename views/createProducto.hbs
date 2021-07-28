@@ -1,0 +1,26 @@
+<form method="post" action="/admin/productos/create"
+  <div class="mb-3">
+    <label class="form-label">Nombre</label>
+    <input type="text" class="form-control" name = "nombre" aria-describedby="emailHelp">   
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Descripcion</label>
+    <input type="text" class="form-control" name = "descripcion" aria-describedby="emailHelp">   
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Precio</label>
+    <input type="number" class="form-control" name = "precio" aria-describedby="emailHelp">   
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Stock</label>
+    <input type="number" class="form-control" name = "stock" aria-describedby="emailHelp">   
+  </div>
+  </div>
+      <label for="id_categoria">Categoria<span class="text-danger">*</span></label>
+            <select name="id_categoria" id="id_categoria" class="form-select">
+       {{#each categorias}}
+         <option value="{{id}}">{{nombre}}</option>
+     {{/each}}
+       </select>
+  <button type="submit" class="btn btn-info">Agregar Producto</button>
+</form>
