@@ -1,4 +1,7 @@
-<form method="post" action="/admin/productos/create"
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center" style="height : 85vh">
+        <div class="col-7 bg-dark text-white">
+<form method="post" action="/admin/productos/create">
   <div class="mb-3">
     <label class="form-label">Nombre</label>
     <input type="text" class="form-control" name = "nombre" aria-describedby="emailHelp">   
@@ -15,12 +18,20 @@
     <label class="form-label">Stock</label>
     <input type="number" class="form-control" name = "stock" aria-describedby="emailHelp">   
   </div>
-  </div>
-      <label for="id_categoria">Categoria<span class="text-danger">*</span></label>
+  <div class="mb-3">
+      <label for="id_categoria">Categoria</label>
             <select name="id_categoria" id="id_categoria" class="form-select">
+
+            </div>
        {{#each categorias}}
          <option value="{{id}}">{{nombre}}</option>
      {{/each}}
        </select>
-  <button type="submit" class="btn btn-info">Agregar Producto</button>
+       <br>
+        <div class="d-flex justify-content-around">
+  <button type="submit" class="btn btn-success">Agregar</button>
+  </div>
 </form>
+</div>
+</div>
+    

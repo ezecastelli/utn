@@ -4,6 +4,7 @@ const model = require('./../models/users');
 const sha1 = require('sha1');
 const {v4: uuid} = require('uuid');
 const { send } = require('./services/mail');
+const {validateRegistro} = require('./../middleware/usuarios');
 
 
 
@@ -13,6 +14,7 @@ const register = (req, res) => {
 }
 const crearUsuario = async (req, res) => {
     const usuario = req.body;
+    let duplicado = false;
     console.log(usuario);
     const uid = uuid();
     console.log(uid);
@@ -22,15 +24,25 @@ const crearUsuario = async (req, res) => {
         mail: usuario.mail,
         confirmacionCorreo: uid,
     }
-    console.log(usuarioFinal);
-    const registrados = await model.crearUsuario(usuarioFinal);
-    send({mail: usuarioFinal.mail, 
-        cuerpo:
-        `<h1> Bienvenido ${usuarioFinal.username}</h1>
+    const usuariosExistentes = await model.all();
+    usuariosExistentes.forEach(usuario => {
+        if (usuario.username == usuarioFinal.username || usuario.mail == usuarioFinal.mail) duplicado = true;
+    })
+    if (!duplicado) {
+        const agregado = await model.crearUsuario(usuarioFinal);
+        console.log(agregado);
+        send({
+            mail : usuarioFinal.mail, 
+            cuerpo:
+            `<h1> Bienvenido ${usuarioFinal.username}</h1>
             <a href="${process.env.URL_SERVER}:${process.env.PORT}/registro/verify/${usuarioFinal.confirmacionCorreo}">Link magico</a>`,
             });
-        res.redirect("/");
-    };
+        res.redirect('/login');
+    }
+    else {
+        res.render('registro', {message : "el nombre de usuario y/o mail ingresado ya extisten"})
+    }
+}
 
 
     const verify = async (req, res) => {
@@ -41,6 +53,6 @@ const crearUsuario = async (req, res) => {
     }
 
 router.get('/', register);
-router.post('/create', crearUsuario);
+router.post('/', validateRegistro, crearUsuario);
 router.get('/verify/:uid', verify)
 module.exports = router;

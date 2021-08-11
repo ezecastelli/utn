@@ -21,4 +21,3 @@ const saveFile = ({mimetype, path}, allowE, destFolder = `./public/images`) => {
 const imgFile = (file) => saveFile(file, extensionesPermitidas);
 
 module.exports = {imgFile}
-

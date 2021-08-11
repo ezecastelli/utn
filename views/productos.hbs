@@ -1,13 +1,13 @@
 <div class="container">
-    <div class="row">
+  <div class="d-flex align-content-center flex-wrap">
        {{#each productos}} 
         <div class="col-8">
-            <div class="card" style="width: 18rem;">
+            <div class="card d-flex align-content-center flex-wrap" style="width: 10rem;">
   <img src="..." class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">{{nombre}}</h5>
+    <h5 class="card-title">Producto: {{nombre}}</h5>
     <p class="card-text">Categoria: {{nombreCategoria}}</p>
-    <a href="/productos/single/{{id}}" class="btn btn-primary">Ver Mas</a>
+    <a href="/productos/single/{{id}}" class="btn btn-warning">Ver Mas</a>
   </div>
 </div>
         </div>

@@ -1,15 +1,25 @@
-<form method="post" action="registro/create">
-<div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">username<span class="text-danger">*</span></label>
-    <input type="text" class="form-control" name = "username" aria-describedby="emailHelp" id="username">   
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">email address<span class="text-danger">*</span></label>
-    <input type="email" class="form-control" name = "mail" aria-describedby="emailHelp" id="mail">    
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password<span class="text-danger">*</span></label>
-    <input type="password" class="form-control" name = "pass" id= "pass">
-  </div>
-  <button type="submit" class="btn btn-info">Registrarse</button>
-</form>
+<div class="container-fluid " style="height : 100vh">
+    <div class="row justify-content-center align-items-center" style="height : 100vh">
+        <div class="col-7 bg-dark text-white">
+            <form method="post" action="/registro">
+                <div class="form-group">
+                    <label for="username">Nombre de usuario<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="username" id="username">
+                </div>
+                <div class="form-group">
+                    <label for="pass">Contraseña<span class="text-danger">*</span></label>
+                    <input type="password" class="form-control" name="pass" id="pass">
+                </div>
+                <div class="form-group">
+                    <label for="mail">Mail<span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" name="mail" id="mail">
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-success mt-3">Registrarse</button>
+                </div>
+            </form>
+            <p class="text-danger text-center mt-3">{{message}}</p>
+        </div>
+
+    </div>
+</div>

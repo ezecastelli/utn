@@ -1,8 +1,7 @@
-<div class="container-fluid  bg-dark" style="height : 100vh">
+<div class="container-fluid" style="height : 100vh">
     <div class="container">
-
-        <a href="/admin/empleados/create" class="btn btn-info mt-4 mb-4">Agregar empleados</a>
-        <table class="table text-white">
+        <br>
+        <table class="table bg-dark text-white">
             <tr>
                 <th>#</th>
                 <th>Nombre</th>
@@ -21,13 +20,15 @@
                 <td>{{telefono}}</td>
                 <td>{{direccion}}</td>
                 <td><img src="/images/{{uuid}}" alt="no hay imagen" style="height : 50px"></td>
-                <td><a href="/admin/empleados/update/{{id}}" class="btn btn-primary"><i class="fas fa-edit"></i>
+                <td><a href="/admin/empleados/update/{{id}}" class="btn btn-info"><i class="fas fa-edit"></i>
                         Editar</a></td>
                 <td><a href="/admin/empleados/delete/{{id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
                         Eliminar</a></td>
             </tr>
             {{/each}}
         </table>
-
+        <div class="d-flex justify-content-around">
+        <a href="/admin/empleados/create" class="btn btn-warning mt-4 mb-4">Agregar empleados</a>
+    </div>
     </div>
 </div>
